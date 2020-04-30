@@ -1,0 +1,123 @@
+Delivered-To: joshperez199@gmail.com
+Received: by 2002:a9d:3ef4:0:0:0:0:0 with SMTP id b107csp1340054otc;
+        Wed, 29 Apr 2020 16:43:10 -0700 (PDT)
+X-Received: by 2002:a37:9b4f:: with SMTP id d76mr1006530qke.268.1588203790034;
+        Wed, 29 Apr 2020 16:43:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588203790; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0jcKhoFW0bpLKf2Z7/32hzFw4pHAY2ORfcT7icMq7wWrh/EfZjAJW43t6wNf1lxkAT
+         1oorefbzG5z9LlrxdpcCK2ChHZn4aKVE7m99rOD2W4HuKt2A/9YQq5lrcx2XyG9BYroL
+         rL6o6kaO5AixPiuWF0TgBxzKwgzuvSmP+eOkW+1kzV7qQX+Z/oGzKkW/tjbjo+/Nw3nE
+         a+NBfvOK7DaPzCnEDfAv8U9WlTz3/OH0AOUKdepSjYf6PxC8sm9UQu3H5vIdgckOE7W/
+         JJeMpQayyuCWwi+gAFHdSTIGFLZlc7sKPbUWkUppH8m1TvwjZtjDpBEJlaZDE0aMPF2n
+         VbSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:to:thread-topic:subject:from:date
+         :mime-version:message-id:dkim-signature;
+        bh=QtC8u3JwgVzQ1bHG6HfVwJ8hREic4e+KFMKEWfqzV+c=;
+        b=v+r7DjoavA+LQOPIo9oZXIopwa2jOKNMC5QiErbO+YhyMTOdvQQpgXB6NBRF2NUH7T
+         2ODVMnSrcyisKEiJSi71TiuDrXYfD9twoVzcFo/JO9tBDB4V1HqAx+fQh7RNbpwcMdiI
+         /p7dQ6f/5TGJ4m5lDIbyu9v/gbz0L/UnHqcVUADRJEnEHA0AdaBUL9dm14hVDDfktHEs
+         3x+WxtnYozz+NM31vMeiKDhxl9LPTR4/n7mlL2U+Wr/PN6kN/w2Zq5FL9wVfsk44Ff/t
+         Syv9tghcNmG0QpOD99WG17a+vJFJHfvrlq59uAyXS5YXPk8IZpNd1hDEhakPwvY4OS+9
+         7Z5A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="BxEWfn/L";
+       spf=pass (google.com: domain of gillian.covillo@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gillian.covillo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <gillian.covillo@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id q65sor777145qke.96.2020.04.29.16.43.09
+        for <joshperez199@gmail.com>
+        (Google Transport Security);
+        Wed, 29 Apr 2020 16:43:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gillian.covillo@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="BxEWfn/L";
+       spf=pass (google.com: domain of gillian.covillo@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gillian.covillo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=message-id:mime-version:date:from:subject:thread-topic:to
+         :content-transfer-encoding;
+        bh=QtC8u3JwgVzQ1bHG6HfVwJ8hREic4e+KFMKEWfqzV+c=;
+        b=BxEWfn/LaUvf/nFgFXxKJBnsGFAigmjwa+g9p/7f40PRRfo8XLVKXEtso+FX8NKire
+         N15H+T0boNiAUYsUiG92PXPPqHVb3U15OLCUNGDDM+6yneN+s452nzCT21K8MyvG0S0A
+         yPVXG32WU2LSD+wac+pOdeWvZCnP7UxMihHl7IJu0eKK3dOLDTz2VVa9IE5LnCO+gP6p
+         i4R2nBYZIbeKeEbSllGtLMape98oDabknffeOe9sNp/REldJ3so1yw1HOid5YwgMj7j5
+         3yw9UVv037KmIUQJk3fhwJ6YgramcaqOefsFtYCrCMC8c/01zVV7eAckkt39DbOSz4FH
+         VMbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:message-id:mime-version:date:from:subject
+         :thread-topic:to:content-transfer-encoding;
+        bh=QtC8u3JwgVzQ1bHG6HfVwJ8hREic4e+KFMKEWfqzV+c=;
+        b=mNevlo+3U/1gp0Ju3ZYJBYa9irmfc5zSlnDyE8C8x+KwNtUYy7Er9LkGslrxj5YZLY
+         D/5UJCfe+vXFarqwN7BLEEUvj0Kk+1v1Vz+uqNPQTEu2WAPD62cK2on7+7INq6WgwaGi
+         G0tkAiikJSHIM5tp5VgXpdbn7TJvaRWoLml9gCSiJwQlf94JQvnm3BmeHylLWF9RBszt
+         mxXexP0w3aQqTktriKeGzPsVtGAj7TBwTGdzc3UxpTTp/mYAFqIbVQBP8RBuVpxlhK12
+         RUhvsoMksKVa8UJoX+IfkGhcLYLlCumspWeSKkR00chd1VUrJxhEkyNrIBNs7FTZf3Vb
+         vEQw==
+X-Gm-Message-State: AGi0PuY7NSyUZ7wtYwDet33LCkAIqJhSFqZs+A4hfNBXsTEk1xSuCHMP
+	FY1TjROJRFBCKx77vg85N7daigH0fc8=
+X-Google-Smtp-Source: APiQypJf+R5qRXg+hh3L6bbS077ixn2K5MGV9oNdYeJ3tioEPMh9jVspLXkUtYM4EQOM6u1MueOlFw==
+X-Received: by 2002:a37:a5c7:: with SMTP id o190mr1032869qke.5.1588203789574;
+        Wed, 29 Apr 2020 16:43:09 -0700 (PDT)
+Return-Path: <gillian.covillo@gmail.com>
+Received: from smtp.gmail.com (ool-944b5810.dyn.optonline.net. [148.75.88.16])
+        by smtp.gmail.com with ESMTPSA id o67sm488080qkc.2.2020.04.29.16.43.09
+        for <joshperez199@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Apr 2020 16:43:09 -0700 (PDT)
+Message-ID: <5eaa110d.1c69fb81.d8986.3c4d@mx.google.com>
+MIME-Version: 1.0
+Date: Wed, 29 Apr 2020 19:43:09 -0400
+From: Gillian Covillo <gillian.covillo@gmail.com>
+Subject: More v.m.s
+Thread-Topic: More v.m.s
+To: "joshperez199@gmail.com" <joshperez199@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta ht=
+tp-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta name=
+=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style></head><body lang=3DEN-US link=3Dblue vlink=3D"#954F72"><div cla=
+ss=3DWordSection1><p class=3DMsoNormal><a href=3D"https://github.com/ranade=
+ep47/virtual-memory-simulation">https://github.com/ranadeep47/virtual-memor=
+y-simulation</a><o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p=
+ class=3DMsoNormal>Notice there is one for lru and fifo<o:p></o:p></p><p cl=
+ass=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><a href=3D"https:=
+//github.com/mvibraim/virtual-memory-simulator-LRU">https://github.com/mvib=
+raim/virtual-memory-simulator-LRU</a><o:p></o:p></p><p class=3DMsoNormal><o=
+:p>&nbsp;</o:p></p><p class=3DMsoNormal>another lru one<o:p></o:p></p><p cl=
+ass=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p>=
+</p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><o:p>&nb=
+sp;</o:p></p></div></body></html>=
+

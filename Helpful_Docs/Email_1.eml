@@ -1,0 +1,1884 @@
+Delivered-To: joshperez199@gmail.com
+Received: by 2002:a9d:3ef4:0:0:0:0:0 with SMTP id b107csp1337808otc;
+        Wed, 29 Apr 2020 16:40:02 -0700 (PDT)
+X-Received: by 2002:ac8:19f5:: with SMTP id s50mr935065qtk.186.1588203602178;
+        Wed, 29 Apr 2020 16:40:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1588203602; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dHeMRHF6DzPUaG7xxjtZM7D82OcLQxpm4DYucUn45l/mbAV1PMka7wmCxVYtJ0h7+Q
+         DEOvmz3YQshyI2NQOND4ka0A//nemFH79/cv4Vdd/ryIbz1zZFct6f1pGh7nf7vAbmY1
+         vX1a8yPFJhz6TCcoHM/N3yVdLm85/Sg1hhXV/s9/BWw3VgHo1GsVWROVt60DzkN5YjuQ
+         hK6uZSX/k8EEAyjyHTReUclkABRJrJkFecWpRqS4xAUU3pebqcxOJe1YdPOI7J7hQPYw
+         OURG6gi4Tk7rvmznhuiHgPCW7/3VTahdVRbUODsyXNoU724emuJbpxsRZHzLfO4pm+Ou
+         K8DA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:to:thread-topic:subject:from:date
+         :mime-version:message-id:dkim-signature;
+        bh=DItEhcM6fDMatcgR8eMmEX1hCdtnABn4DxiZlrfiKeg=;
+        b=quzuA8qojtPv2OvyfLGimeFTBptuI22wyMTfSwckYxI63XF0XIPNtIQtiApQlsv+uM
+         ILHmYSNfsyL7aCd28VdPrxUbRIKl8BxKlNYkrJp7Z4IJXX49yqC9dk2vmM/hS6zU6FVT
+         BAPz2hZEY6cAXtDu6IFrEFlZbnQ9a+ZTcIkpFTXceqVmFWhVmeaq4vGdCQMAOVrEyZiN
+         ZbWtOuPvAxmK0Ci9GvMvS096xjuI4qw9OBA5MtfH4Cg+ysQPbvwuxaOc+QCDEd2wgyGd
+         BcMDN/j2p33EvxbbHuaHSbjzmY6WL3ZaMd94dsmCGeKvxadySqsNGTy92Oi878MdxYQF
+         gW3A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=X5GLfLxe;
+       spf=pass (google.com: domain of gillian.covillo@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gillian.covillo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <gillian.covillo@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id i5sor768214qke.165.2020.04.29.16.40.01
+        for <joshperez199@gmail.com>
+        (Google Transport Security);
+        Wed, 29 Apr 2020 16:40:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gillian.covillo@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=X5GLfLxe;
+       spf=pass (google.com: domain of gillian.covillo@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gillian.covillo@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=message-id:mime-version:date:from:subject:thread-topic:to
+         :content-transfer-encoding;
+        bh=DItEhcM6fDMatcgR8eMmEX1hCdtnABn4DxiZlrfiKeg=;
+        b=X5GLfLxe2IbzXyyKjWwBCT3bm20mgg2yiJ8/d3dFeYU+2R5CT7bmAlipgEjvBmjdgp
+         6LA0Ubd9SQovp3w3mv4qFT/uD1QDU/9p85p5Nq1G+/p4emoYtpIVD2qwSjnYOFv5BogG
+         HJn04ts+q4wm/jv/ckFZduaZrSGjJHd5oeHgGf0CmJG3PWXEPK59JkBMgcDbLK/om5jM
+         ZPIxN4QnUyAttMT2c3cUcpXwqZxLBgi/sfCNR9AN0an+a9jwe9w4ebNyCLX16TIgCTXu
+         zN5z08gi2DtPxj30a7VwzBdW4u0ZwIW7rSF0xR2H11UXBOvODiYM58rF5tRDC2uTAJPc
+         tymg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:message-id:mime-version:date:from:subject
+         :thread-topic:to:content-transfer-encoding;
+        bh=DItEhcM6fDMatcgR8eMmEX1hCdtnABn4DxiZlrfiKeg=;
+        b=sXcYb6TU94KqOvnzangPk/N5bBPuTiUnreaKLcH3O0/nztoF5wZyUMWhxJs1f9wQaH
+         4KaKkE1JLeYnPdvssfYSofKDfnDPyZWPVa4Mh/r7lryp5OURzb04+ZbJhF+ve6urWLKr
+         flx520FL7Pvey+D2/3boT1/d8HFNZs11ACw4zWcJaBUYQA3SQ+o97ilEkYQceOXZX7R1
+         +2JA+d3xNUE4Ob+21+UEJMSEkfZplLcxiKrxKNeVo3+P/jLVdc9PGuiJF7op4mvu/ZBb
+         VU1LMj4TptwTcRjGzAxR5/W5GUqvUkBKTNgOiGO4bhQB1aS2CxM/1wZQiD3W4/ZQVYfW
+         Bjeg==
+X-Gm-Message-State: AGi0PuZfW9CumfmkS0dvLFJdgyMJbaB4in+4q2RaDJrKck8qmQm1t6R5
+	H7zDoj/KWAfHtz+3Q0S6gYuh+JpCxvY=
+X-Google-Smtp-Source: APiQypLxMZQrDpL/uVBfDl/wpmyAI4OXckGHrvnztdIgKGNyECmYe4Dfco2ZIByAcja56pSNyvRvzw==
+X-Received: by 2002:a37:6393:: with SMTP id x141mr913259qkb.179.1588203600953;
+        Wed, 29 Apr 2020 16:40:00 -0700 (PDT)
+Return-Path: <gillian.covillo@gmail.com>
+Received: from smtp.gmail.com (ool-944b5810.dyn.optonline.net. [148.75.88.16])
+        by smtp.gmail.com with ESMTPSA id d69sm482302qke.111.2020.04.29.16.40.00
+        for <joshperez199@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Apr 2020 16:40:00 -0700 (PDT)
+Message-ID: <5eaa1050.1c69fb81.ac6bd.3a4b@mx.google.com>
+MIME-Version: 1.0
+Date: Wed, 29 Apr 2020 19:39:59 -0400
+From: Gillian Covillo <gillian.covillo@gmail.com>
+Subject: Project Reading
+Thread-Topic: Project Reading
+To: "joshperez199@gmail.com" <joshperez199@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta ht=
+tp-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta name=
+=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Helvetica;
+	panose-1:2 11 5 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:inherit;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style></head><body lang=3DEN-US link=3Dblue vlink=3D"#954F72"><div cla=
+ss=3DWordSection1><p class=3DMsoNormal>Hello Josh,</p><p class=3DMsoNormal>=
+<o:p>&nbsp;</o:p></p><p class=3DMsoNormal>I will be attaching some things w=
+e should read to prepare ourselves for this project. </p><p class=3DMsoNorm=
+al><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=
+=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>I=E2=80=99m not sure=
+ if this is what he wants but it sounds similar: </p><p class=3DMsoNormal><=
+a href=3D"https://github.com/vyshakbellur/Virtual-Memory-Simulation-Tool">h=
+ttps://github.com/vyshakbellur/Virtual-Memory-Simulation-Tool</a><o:p></o:p=
+></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>This is=
+ a good summary of the slides:<o:p></o:p></p><p class=3DMsoNormal><a href=
+=3D"https://www.geeksforgeeks.org/virtual-memory-in-operating-system/">http=
+s://www.geeksforgeeks.org/virtual-memory-in-operating-system/</a><o:p></o:p=
+></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Demand =
+Paging Simulator:<o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><=
+p style=3D'margin:0in;margin-bottom:.0001pt;background:white;vertical-align=
+:baseline'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-ser=
+if;color:#333333'>Design and implement a&nbsp;</span><strong><span style=3D=
+'font-size:10.5pt;font-family:"inherit",serif;color:#333333;border:none win=
+dowtext 1.0pt;padding:0in'>Demand Paging</span></strong><span style=3D'font=
+-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>&nbsp;virtua=
+l memory simulator!<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in=
+;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:white;vert=
+ical-align:baseline;font-variant-ligatures: normal;font-variant-caps: norma=
+l;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stret=
+ch: inherit;line-height:inherit;orphans: 2;text-align:start;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>It must be a text based application (=
+NOT a GUI based one).<o:p></o:p></span></p><p style=3D'margin:0in;margin-bo=
+ttom:.0001pt;background:white;vertical-align:baseline;font-variant-ligature=
+s: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-vari=
+ant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: =
+2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration=
+-style: initial;text-decoration-color: initial;word-spacing:0px'><span styl=
+e=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>You=
+ can use the&nbsp;</span><strong><span style=3D'font-size:10.5pt;font-famil=
+y:"inherit",serif;color:#333333;border:none windowtext 1.0pt;padding:0in'>J=
+ava</span></strong><span style=3D'font-size:10.5pt;font-family:"Helvetica",=
+sans-serif;color:#333333'>&nbsp;programming language.<o:p></o:p></span></p>=
+<p style=3D'margin:0in;margin-bottom:.0001pt;background:white;vertical-alig=
+n:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-va=
+riant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inher=
+it;line-height:inherit;orphans: 2;text-align:start;widows: 2;-webkit-text-s=
+troke-width: 0px;text-decoration-style: initial;text-decoration-color: init=
+ial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetic=
+a",sans-serif;color:#333333'>The following algorithms must be implemented:&=
+nbsp;</span><strong><span style=3D'font-size:10.5pt;font-family:"inherit",s=
+erif;color:#333333;border:none windowtext 1.0pt;padding:0in'>FIFO</span></s=
+trong><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;co=
+lor:#333333'>,&nbsp;</span><strong><span style=3D'font-size:10.5pt;font-fam=
+ily:"inherit",serif;color:#333333;border:none windowtext 1.0pt;padding:0in'=
+>OPT, LRU</span></strong><span style=3D'font-size:10.5pt;font-family:"Helve=
+tica",sans-serif;color:#333333'>&nbsp;and&nbsp;</span><strong><span style=
+=3D'font-size:10.5pt;font-family:"inherit",serif;color:#333333;border:none =
+windowtext 1.0pt;padding:0in'>LFU</span></strong><span style=3D'font-size:1=
+0.5pt;font-family:"Helvetica",sans-serif;color:#333333'>.<o:p></o:p></span>=
+</p><p style=3D'margin:0in;margin-bottom:.0001pt;background:white;vertical-=
+align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fon=
+t-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: i=
+nherit;line-height:inherit;orphans: 2;text-align:start;widows: 2;-webkit-te=
+xt-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: =
+initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helv=
+etica",sans-serif;color:#333333'>The application must simulate the executio=
+n of each of these algorithms on a hypothetical computer having only&nbsp;<=
+/span><strong><span style=3D'font-size:10.5pt;font-family:"inherit",serif;c=
+olor:#333333;border:none windowtext 1.0pt;padding:0in'>N</span></strong><sp=
+an style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#3333=
+33'>&nbsp;physical frames (numbered from&nbsp;</span><strong><span style=3D=
+'font-size:10.5pt;font-family:"inherit",serif;color:#333333;border:none win=
+dowtext 1.0pt;padding:0in'>0 to N-1, N&lt;8</span></strong><span style=3D'f=
+ont-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>), assumi=
+ng that the single process that is running has a virtual memory of&nbsp;</s=
+pan><strong><span style=3D'font-size:10.5pt;font-family:"inherit",serif;col=
+or:#333333;border:none windowtext 1.0pt;padding:0in'>ten</span></strong><sp=
+an style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#3333=
+33'>&nbsp;frames (numbered from&nbsp;</span><strong><span style=3D'font-siz=
+e:10.5pt;font-family:"inherit",serif;color:#333333;border:none windowtext 1=
+.0pt;padding:0in'>0 to 9</span></strong><span style=3D'font-size:10.5pt;fon=
+t-family:"Helvetica",sans-serif;color:#333333'>). The number N should be a =
+number provided in the command line as an argument.<o:p></o:p></span></p><p=
+ style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:6.0pt;margi=
+n-left:0in;background:white;vertical-align:baseline;font-variant-ligatures:=
+ normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varian=
+t-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;=
+text-align:start;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-s=
+tyle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>The =
+algorithms will be simulated based on a reference string (a sequence of pag=
+es that are to be accessed) that will be either read from the keyboard or r=
+andomly generated.<o:p></o:p></span></p><p class=3DMsoNormal><o:p>&nbsp;</o=
+:p></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12=
+.0pt;margin-left:0in;background:white;vertical-align:baseline'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>pack=
+age simulator;<br>import java.util.ArrayList;<br>import java.util.Random;<b=
+r>import java.util.Scanner;<o:p></o:p></span></p><p style=3D'mso-margin-top=
+-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:w=
+hite;vertical-align:baseline;font-variant-ligatures: normal;font-variant-ca=
+ps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;f=
+ont-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-=
+stroke-width: 0px;text-decoration-style: initial;text-decoration-color: ini=
+tial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helveti=
+ca",sans-serif;color:#333333'>public class Menu {<o:p></o:p></span></p><p s=
+tyle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin=
+-left:0in;background:white;vertical-align:baseline;font-variant-ligatures: =
+normal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant=
+-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;w=
+idows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text=
+-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5p=
+t;font-family:"Helvetica",sans-serif;color:#333333'>private int selected; /=
+/stores the menu selection<br>private boolean showReferenceString;<br>publi=
+c String selectedReferenceStringBuffer;<br>static final String VFRAMES =3D =
+&quot;01234567&quot;;<br>static Random rnd =3D new Random();<o:p></o:p></sp=
+an></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12=
+.0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-=
+ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;f=
+ont-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;o=
+rphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: i=
+nitial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font=
+-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>// does the =
+whole menu logic (presentation, validation and returns reult)<o:p></o:p></s=
+pan></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:1=
+2.0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant=
+-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;=
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;=
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: =
+initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fon=
+t-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>public int =
+doMenu() {<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-r=
+ight:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-ali=
+gn:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-v=
+ariant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inhe=
+rit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px=
+;text-decoration-style: initial;text-decoration-color: initial;word-spacing=
+:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;co=
+lor:#333333'>this.showMenu();<br>int token;<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'><br>do {<br>Scanner scanner=
+ =3D new Scanner(System.in);<o:p></o:p></span></p><p style=3D'mso-margin-to=
+p-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:=
+white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-c=
+aps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;=
+font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text=
+-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: in=
+itial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvet=
+ica",sans-serif;color:#333333'>// non integers shouldn't be accespted<br>wh=
+ile (!scanner.hasNextInt()) {<br>System.out.print(&quot;\nValid selections =
+are 0-6 (try again)&gt; &quot;);<br>scanner.nextLine();<br>}<o:p></o:p></sp=
+an></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12=
+.0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-=
+ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;f=
+ont-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;o=
+rphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: i=
+nitial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font=
+-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>token =3D sc=
+anner.nextInt();<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;ma=
+rgin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertic=
+al-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;=
+font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch=
+: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-widt=
+h: 0px;text-decoration-style: initial;text-decoration-color: initial;word-s=
+pacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-se=
+rif;color:#333333'>//other integers shouldn't work<br>if (token &gt; 6 || t=
+oken &lt; 0) {<br>System.out.print(&quot;\nSeriously? you can choose either=
+ 0,1,2,3,4,5 or 6. Everything else just ain't gonna work. (try again)\n&gt;=
+ &quot;);<br>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;marg=
+in-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical=
+-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fo=
+nt-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: =
+inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width:=
+ 0px;text-decoration-style: initial;text-decoration-color: initial;word-spa=
+cing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-seri=
+f;color:#333333'>} while (token &gt; 6 || token &lt; 0);<o:p></o:p></span><=
+/p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt=
+;margin-left:0in;background:white;vertical-align:baseline;font-variant-liga=
+tures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-=
+variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orpha=
+ns: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initi=
+al;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-siz=
+e:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>this.selected =
+=3D token;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-r=
+ight:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-ali=
+gn:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-v=
+ariant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inhe=
+rit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px=
+;text-decoration-style: initial;text-decoration-color: initial;word-spacing=
+:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;co=
+lor:#333333'>// return the valid selection to caller<br>return this.selecte=
+d;<br>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-righ=
+t:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:=
+baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-vari=
+ant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit=
+;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color=
+:#333333'>//menu view<br>public void showMenu() {<o:p></o:p></span></p><p s=
+tyle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin=
+-left:0in;background:white;vertical-align:baseline;font-variant-ligatures: =
+normal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant=
+-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;w=
+idows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text=
+-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5p=
+t;font-family:"Helvetica",sans-serif;color:#333333'>String menu =3D &quot;M=
+emory Paging Simulation Menu:\n\n&quot;;<o:p></o:p></span></p><p style=3D'm=
+so-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in=
+;background:white;vertical-align:baseline;font-variant-ligatures: normal;fo=
+nt-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asi=
+an: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;=
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decorati=
+on-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fa=
+mily:"Helvetica",sans-serif;color:#333333'>// display the reference string =
+if display is true<br>if (this.showReferenceString) {<br>menu +=3D &quot;[C=
+urrent RS:&quot; + this.selectedReferenceStringBuffer + &quot;]\n\n&quot;;<=
+br>}<o:p></o:p></span></p><div style=3D'mso-element:para-border-div;border:=
+none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 1.0pt 0in;backgro=
+und:white'><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-botto=
+m:12.0pt;margin-left:0in;background:white;vertical-align:baseline;border:no=
+ne;padding:0in;font-variant-ligatures: normal;font-variant-caps: normal;fon=
+t-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: i=
+nherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: =
+0px;text-decoration-style: initial;text-decoration-color: initial;word-spac=
+ing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif=
+;color:#333333'>menu +=3D &quot;0<o:p></o:p></span></p></div><p style=3D'ms=
+o-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;=
+background:white;vertical-align:baseline'><span style=3D'font-size:10.5pt;f=
+ont-family:"Helvetica",sans-serif;color:#333333'>#include&lt;stdio.h&gt;<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+void FIFO(char [],char [],int,int);<o:p></o:p></span></p><p style=3D'mso-ma=
+rgin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;back=
+ground:white;vertical-align:baseline;font-variant-ligatures: normal;font-va=
+riant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: i=
+nherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>void lru(char [],char [],int,int);<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+void opt(char [],char [],int,int);<o:p></o:p></span></p><p style=3D'mso-mar=
+gin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backg=
+round:white;vertical-align:baseline;font-variant-ligatures: normal;font-var=
+iant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: in=
+herit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webki=
+t-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-col=
+or: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"=
+Helvetica",sans-serif;color:#333333'>int main()<o:p></o:p></span></p><p sty=
+le=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-l=
+eft:0in;background:white;vertical-align:baseline;font-variant-ligatures: no=
+rmal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-e=
+ast-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wid=
+ows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-d=
+ecoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;=
+font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p=
+ style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;marg=
+in-left:0in;background:white;vertical-align:baseline;font-variant-ligatures=
+: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varia=
+nt-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2=
+;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;te=
+xt-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.=
+5pt;font-family:"Helvetica",sans-serif;color:#333333'>int ch,YN=3D1,i,l,f;<=
+o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;ma=
+rgin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline=
+;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-nume=
+ric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-he=
+ight:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decor=
+ation-style: initial;text-decoration-color: initial;word-spacing:0px'><span=
+ style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333=
+'>char F[10],s[25];<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in=
+;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;ver=
+tical-align:baseline;font-variant-ligatures: normal;font-variant-caps: norm=
+al;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stre=
+tch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-w=
+idth: 0px;text-decoration-style: initial;text-decoration-color: initial;wor=
+d-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans=
+-serif;color:#333333'>clrscr();<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>//system(&quot;clear&quot;);<o:p></o:p></=
+span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:=
+12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varian=
+t-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit=
+;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit=
+;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style:=
+ initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fo=
+nt-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>printf(&qu=
+ot;\n\n\tEnter the no of empty frames: &quot;);<o:p></o:p></span></p><p sty=
+le=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-l=
+eft:0in;background:white;vertical-align:baseline;font-variant-ligatures: no=
+rmal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-e=
+ast-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wid=
+ows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-d=
+ecoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;=
+font-family:"Helvetica",sans-serif;color:#333333'>scanf(&quot;%d&quot;,&amp=
+;f);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0=
+in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:bas=
+eline;font-variant-ligatures: normal;font-variant-caps: normal;font-variant=
+-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;li=
+ne-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-=
+decoration-style: initial;text-decoration-color: initial;word-spacing:0px'>=
+<span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#3=
+33333'>printf(&quot;\n\n\tEnter the length of the string: &quot;);<o:p></o:=
+p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bot=
+tom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-va=
+riant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inh=
+erit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inh=
+erit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-st=
+yle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>scan=
+f(&quot;%d&quot;,&amp;l);<o:p></o:p></span></p><p style=3D'mso-margin-top-a=
+lt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whi=
+te;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps=
+: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fon=
+t-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-st=
+roke-width: 0px;text-decoration-style: initial;text-decoration-color: initi=
+al;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica=
+",sans-serif;color:#333333'>printf(&quot;\n\n\tEnter the string: &quot;);<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>scanf(&quot;%s&quot;,s);<o:p></o:p></span></p><p style=3D'mso-margin-top-a=
+lt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whi=
+te;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps=
+: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fon=
+t-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-st=
+roke-width: 0px;text-decoration-style: initial;text-decoration-color: initi=
+al;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica=
+",sans-serif;color:#333333'>for(i=3D0;i&lt;f;i++)<o:p></o:p></span></p><p s=
+tyle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin=
+-left:0in;background:white;vertical-align:baseline;font-variant-ligatures: =
+normal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant=
+-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;w=
+idows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text=
+-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5p=
+t;font-family:"Helvetica",sans-serif;color:#333333'>F[i]=3D-1;<o:p></o:p></=
+span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:=
+12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varian=
+t-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit=
+;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit=
+;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style:=
+ initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fo=
+nt-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>do<o:p></o=
+:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bo=
+ttom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-v=
+ariant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: in=
+herit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:in=
+herit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-s=
+tyle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+// system(&quot;clear&quot;);<o:p></o:p></span></p><p style=3D'mso-margin-t=
+op-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background=
+:white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-=
+caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit=
+;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-tex=
+t-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: i=
+nitial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helve=
+tica",sans-serif;color:#333333'>printf(&quot;\n\n\t*********** MENU *******=
+****&quot;);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin=
+-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-a=
+lign:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font=
+-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: in=
+herit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0=
+px;text-decoration-style: initial;text-decoration-color: initial;word-spaci=
+ng:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;=
+color:#333333'>printf(&quot;\n\n\t1:FIFO\n\n\t2:LRU\n\n\t3:OPT\n\n\t4:EXIT&=
+quot;);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-righ=
+t:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:=
+baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-vari=
+ant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit=
+;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color=
+:#333333'>printf(&quot;\n\n\tEnter your choice: &quot;);<o:p></o:p></span><=
+/p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt=
+;margin-left:0in;background:white;vertical-align:baseline;font-variant-liga=
+tures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-=
+variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orpha=
+ns: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initi=
+al;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-siz=
+e:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>scanf(&quot;%d&q=
+uot;,&amp;ch);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;marg=
+in-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical=
+-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fo=
+nt-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: =
+inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width:=
+ 0px;text-decoration-style: initial;text-decoration-color: initial;word-spa=
+cing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-seri=
+f;color:#333333'>//system(&quot;clear&quot;);<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>switch(ch)<o:p></o:p></span=
+></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0=
+pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-li=
+gatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;fon=
+t-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orp=
+hans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: ini=
+tial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-s=
+ize:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></=
+span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:=
+12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varian=
+t-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit=
+;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit=
+;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style:=
+ initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fo=
+nt-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>case 1:<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+for(i=3D0;i&lt;f;i++)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0=
+in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;v=
+ertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: no=
+rmal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-st=
+retch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke=
+-width: 0px;text-decoration-style: initial;text-decoration-color: initial;w=
+ord-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sa=
+ns-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-a=
+lt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whi=
+te;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps=
+: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fon=
+t-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-st=
+roke-width: 0px;text-decoration-style: initial;text-decoration-color: initi=
+al;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica=
+",sans-serif;color:#333333'>F[i]=3D-1;<o:p></o:p></span></p><p style=3D'mso=
+-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;b=
+ackground:white;vertical-align:baseline;font-variant-ligatures: normal;font=
+-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian=
+: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-w=
+ebkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration=
+-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fami=
+ly:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D=
+'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0=
+in;background:white;vertical-align:baseline;font-variant-ligatures: normal;=
+font-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-a=
+sian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: =
+2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decora=
+tion-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-=
+family:"Helvetica",sans-serif;color:#333333'>FIFO(s,F,l,f);<o:p></o:p></spa=
+n></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.=
+0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-l=
+igatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;fo=
+nt-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;or=
+phans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: in=
+itial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-=
+size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>break;<o:p></=
+o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-b=
+ottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-=
+variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: i=
+nherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:i=
+nherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-=
+style: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>case=
+ 2:<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0i=
+n;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:base=
+line;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-=
+numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;lin=
+e-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-d=
+ecoration-style: initial;text-decoration-color: initial;word-spacing:0px'><=
+span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#33=
+3333'>for(i=3D0;i&lt;f;i++)<o:p></o:p></span></p><p style=3D'mso-margin-top=
+-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:w=
+hite;vertical-align:baseline;font-variant-ligatures: normal;font-variant-ca=
+ps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;f=
+ont-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-=
+stroke-width: 0px;text-decoration-style: initial;text-decoration-color: ini=
+tial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helveti=
+ca",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>F[i]=3D-1;<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p s=
+tyle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin=
+-left:0in;background:white;vertical-align:baseline;font-variant-ligatures: =
+normal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant=
+-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;w=
+idows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text=
+-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5p=
+t;font-family:"Helvetica",sans-serif;color:#333333'>lru(s,F,l,f);<o:p></o:p=
+></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bott=
+om:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-var=
+iant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inhe=
+rit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inhe=
+rit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-sty=
+le: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D=
+'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>break;<=
+o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;ma=
+rgin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline=
+;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-nume=
+ric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-he=
+ight:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decor=
+ation-style: initial;text-decoration-color: initial;word-spacing:0px'><span=
+ style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333=
+'>case 3:<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-ri=
+ght:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-alig=
+n:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-va=
+riant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inher=
+it;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;=
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:=
+0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;col=
+or:#333333'>for(i=3D0;i&lt;f;i++)<o:p></o:p></span></p><p style=3D'mso-marg=
+in-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgr=
+ound:white;vertical-align:baseline;font-variant-ligatures: normal;font-vari=
+ant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inh=
+erit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit=
+-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-colo=
+r: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"H=
+elvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-=
+margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;ba=
+ckground:white;vertical-align:baseline;font-variant-ligatures: normal;font-=
+variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian:=
+ inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-we=
+bkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-=
+color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-famil=
+y:"Helvetica",sans-serif;color:#333333'>F[i]=3D-1;<o:p></o:p></span></p><p =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margi=
+n-left:0in;background:white;vertical-align:baseline;font-variant-ligatures:=
+ normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varian=
+t-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;=
+widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;tex=
+t-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5=
+pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p=
+><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;m=
+argin-left:0in;background:white;vertical-align:baseline;font-variant-ligatu=
+res: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-va=
+riant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans=
+: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial=
+;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:=
+10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>opt(s,F,l,f);<o:p>=
+</o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin=
+-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;fon=
+t-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric:=
+ inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height=
+:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoratio=
+n-style: initial;text-decoration-color: initial;word-spacing:0px'><span sty=
+le=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>br=
+eak;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0=
+in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:bas=
+eline;font-variant-ligatures: normal;font-variant-caps: normal;font-variant=
+-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;li=
+ne-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-=
+decoration-style: initial;text-decoration-color: initial;word-spacing:0px'>=
+<span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#3=
+33333'>case 4:<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;marg=
+in-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical=
+-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fo=
+nt-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: =
+inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width:=
+ 0px;text-decoration-style: initial;text-decoration-color: initial;word-spa=
+cing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-seri=
+f;color:#333333'>exit(0);<o:p></o:p></span></p><p style=3D'mso-margin-top-a=
+lt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whi=
+te;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps=
+: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fon=
+t-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-st=
+roke-width: 0px;text-decoration-style: initial;text-decoration-color: initi=
+al;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica=
+",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-margin-t=
+op-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background=
+:white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-=
+caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit=
+;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-tex=
+t-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: i=
+nitial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helve=
+tica",sans-serif;color:#333333'>printf(&quot;\n\n\tDo u want to continue IF=
+ YES PRESS 1\n\n\tIF NO PRESS 0 : &quot;);<o:p></o:p></span></p><p style=3D=
+'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0=
+in;background:white;vertical-align:baseline;font-variant-ligatures: normal;=
+font-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-a=
+sian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: =
+2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decora=
+tion-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-=
+family:"Helvetica",sans-serif;color:#333333'>scanf(&quot;%d&quot;,&amp;YN);=
+<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;m=
+argin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baselin=
+e;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-num=
+eric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-h=
+eight:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-deco=
+ration-style: initial;text-decoration-color: initial;word-spacing:0px'><spa=
+n style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#33333=
+3'>}while(YN=3D=3D1);return(0);<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-ma=
+rgin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;back=
+ground:white;vertical-align:baseline;font-variant-ligatures: normal;font-va=
+riant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: i=
+nherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>//FIFO<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>void FIFO(char s[],char F[]=
+,int l,int f)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margi=
+n-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-=
+align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fon=
+t-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: i=
+nherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: =
+0px;text-decoration-style: initial;text-decoration-color: initial;word-spac=
+ing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif=
+;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;m=
+argin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;verti=
+cal-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal=
+;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretc=
+h: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-wid=
+th: 0px;text-decoration-style: initial;text-decoration-color: initial;word-=
+spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-s=
+erif;color:#333333'>int i,j=3D0,k,flag=3D0,cnt=3D0;<o:p></o:p></span></p><p=
+ style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;marg=
+in-left:0in;background:white;vertical-align:baseline;font-variant-ligatures=
+: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varia=
+nt-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2=
+;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;te=
+xt-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.=
+5pt;font-family:"Helvetica",sans-serif;color:#333333'>printf(&quot;\n\tPAGE=
+\t FRAMES\t FAULTS&quot;);<o:p></o:p></span></p><p style=3D'mso-margin-top-=
+alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:wh=
+ite;vertical-align:baseline;font-variant-ligatures: normal;font-variant-cap=
+s: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fo=
+nt-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-s=
+troke-width: 0px;text-decoration-style: initial;text-decoration-color: init=
+ial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetic=
+a",sans-serif;color:#333333'>for(i=3D0;i&lt;l;i++)<o:p></o:p></span></p><p =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margi=
+n-left:0in;background:white;vertical-align:baseline;font-variant-ligatures:=
+ normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varian=
+t-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;=
+widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;tex=
+t-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5=
+pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p=
+><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;m=
+argin-left:0in;background:white;vertical-align:baseline;font-variant-ligatu=
+res: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-va=
+riant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans=
+: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial=
+;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:=
+10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>for(k=3D0;k&lt;f;k=
+++)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0i=
+n;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:base=
+line;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-=
+numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;lin=
+e-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-d=
+ecoration-style: initial;text-decoration-color: initial;word-spacing:0px'><=
+span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#33=
+3333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-righ=
+t:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:=
+baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-vari=
+ant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit=
+;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color=
+:#333333'>if(F[k]=3D=3Ds[i])<o:p></o:p></span></p><p style=3D'mso-margin-to=
+p-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:=
+white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-c=
+aps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;=
+font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text=
+-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: in=
+itial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvet=
+ica",sans-serif;color:#333333'>flag=3D1;<o:p></o:p></span></p><p style=3D'm=
+so-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in=
+;background:white;vertical-align:baseline;font-variant-ligatures: normal;fo=
+nt-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asi=
+an: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;=
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decorati=
+on-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fa=
+mily:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>if(flag=3D=3D0)<o:p></o:p><=
+/span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom=
+:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varia=
+nt-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inheri=
+t;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inheri=
+t;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style=
+: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'f=
+ont-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o=
+:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bo=
+ttom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-v=
+ariant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: in=
+herit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:in=
+herit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-s=
+tyle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>prin=
+tf(&quot;\n\t%c\t&quot;,s[i]);<o:p></o:p></span></p><p style=3D'mso-margin-=
+top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgroun=
+d:white;vertical-align:baseline;font-variant-ligatures: normal;font-variant=
+-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inheri=
+t;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-te=
+xt-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: =
+initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helv=
+etica",sans-serif;color:#333333'>F[j]=3Ds[i];<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>j++;<o:p></o:p></span></p><=
+p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;mar=
+gin-left:0in;background:white;vertical-align:baseline;font-variant-ligature=
+s: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-vari=
+ant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: =
+2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;t=
+ext-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10=
+.5pt;font-family:"Helvetica",sans-serif;color:#333333'>for(k=3D0;k&lt;f;k++=
+)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;=
+margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseli=
+ne;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-nu=
+meric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-=
+height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-dec=
+oration-style: initial;text-decoration-color: initial;word-spacing:0px'><sp=
+an style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#3333=
+33'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:=
+0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:ba=
+seline;font-variant-ligatures: normal;font-variant-caps: normal;font-varian=
+t-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;l=
+ine-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text=
+-decoration-style: initial;text-decoration-color: initial;word-spacing:0px'=
+><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#=
+333333'>printf(&quot; %c&quot;,F[k]);<o:p></o:p></span></p><p style=3D'mso-=
+margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;ba=
+ckground:white;vertical-align:baseline;font-variant-ligatures: normal;font-=
+variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian:=
+ inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-we=
+bkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-=
+color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-famil=
+y:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'=
+mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0i=
+n;background:white;vertical-align:baseline;font-variant-ligatures: normal;f=
+ont-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-as=
+ian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2=
+;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decorat=
+ion-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-f=
+amily:"Helvetica",sans-serif;color:#333333'>printf(&quot;\tPage-fault%d&quo=
+t;,cnt);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-rig=
+ht:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align=
+:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-var=
+iant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inheri=
+t;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;t=
+ext-decoration-style: initial;text-decoration-color: initial;word-spacing:0=
+px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;colo=
+r:#333333'>cnt++;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;m=
+argin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;verti=
+cal-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal=
+;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretc=
+h: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-wid=
+th: 0px;text-decoration-style: initial;text-decoration-color: initial;word-=
+spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-s=
+erif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0=
+in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;v=
+ertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: no=
+rmal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-st=
+retch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke=
+-width: 0px;text-decoration-style: initial;text-decoration-color: initial;w=
+ord-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sa=
+ns-serif;color:#333333'>else<o:p></o:p></span></p><p style=3D'mso-margin-to=
+p-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:=
+white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-c=
+aps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;=
+font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text=
+-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: in=
+itial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvet=
+ica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margi=
+n-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgro=
+und:white;vertical-align:baseline;font-variant-ligatures: normal;font-varia=
+nt-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inhe=
+rit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-=
+text-stroke-width: 0px;text-decoration-style: initial;text-decoration-color=
+: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"He=
+lvetica",sans-serif;color:#333333'>flag=3D0;<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>printf(&quot;\n\t%c\t&quot;=
+,s[i]);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-righ=
+t:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:=
+baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-vari=
+ant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit=
+;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color=
+:#333333'>for(k=3D0;k&lt;f;k++)<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-ma=
+rgin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;back=
+ground:white;vertical-align:baseline;font-variant-ligatures: normal;font-va=
+riant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: i=
+nherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>printf(&quot; %c&quot;,F[k]);<o:p></o=
+:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bo=
+ttom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-v=
+ariant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: in=
+herit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:in=
+herit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-s=
+tyle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+printf(&quot;\tNo page-fault&quot;);<o:p></o:p></span></p><p style=3D'mso-m=
+argin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;bac=
+kground:white;vertical-align:baseline;font-variant-ligatures: normal;font-v=
+ariant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: =
+inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-web=
+kit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-c=
+olor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family=
+:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'm=
+so-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in=
+;background:white;vertical-align:baseline;font-variant-ligatures: normal;fo=
+nt-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asi=
+an: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;=
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decorati=
+on-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fa=
+mily:"Helvetica",sans-serif;color:#333333'>if(j=3D=3Df)<o:p></o:p></span></=
+p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;=
+margin-left:0in;background:white;vertical-align:baseline;font-variant-ligat=
+ures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-v=
+ariant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphan=
+s: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initia=
+l;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size=
+:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>j=3D0;<o:p></o:p>=
+</span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-botto=
+m:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-vari=
+ant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inher=
+it;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inher=
+it;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-styl=
+e: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'=
+font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></=
+o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-b=
+ottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-=
+variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: i=
+nherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:i=
+nherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-=
+style: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+//LRU<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:=
+0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:ba=
+seline;font-variant-ligatures: normal;font-variant-caps: normal;font-varian=
+t-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;l=
+ine-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text=
+-decoration-style: initial;text-decoration-color: initial;word-spacing:0px'=
+><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#=
+333333'>void lru(char s[],char F[],int l,int f)<o:p></o:p></span></p><p sty=
+le=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-l=
+eft:0in;background:white;vertical-align:baseline;font-variant-ligatures: no=
+rmal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-e=
+ast-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wid=
+ows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-d=
+ecoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;=
+font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p=
+ style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;marg=
+in-left:0in;background:white;vertical-align:baseline;font-variant-ligatures=
+: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varia=
+nt-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2=
+;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;te=
+xt-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.=
+5pt;font-family:"Helvetica",sans-serif;color:#333333'>int i,j=3D0,k,m,flag=
+=3D0,cnt=3D0,top=3D0;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0=
+in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;v=
+ertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: no=
+rmal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-st=
+retch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke=
+-width: 0px;text-decoration-style: initial;text-decoration-color: initial;w=
+ord-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sa=
+ns-serif;color:#333333'>printf(&quot;\n\tPAGE\t FRAMES\t FAULTS&quot;);<o:p=
+></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margi=
+n-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;fo=
+nt-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric=
+: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heigh=
+t:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorati=
+on-style: initial;text-decoration-color: initial;word-spacing:0px'><span st=
+yle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>f=
+or(i=3D0;i&lt;l;i++)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0i=
+n;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;ve=
+rtical-align:baseline;font-variant-ligatures: normal;font-variant-caps: nor=
+mal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-str=
+etch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-=
+width: 0px;text-decoration-style: initial;text-decoration-color: initial;wo=
+rd-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",san=
+s-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-al=
+t:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whit=
+e;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps:=
+ normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font=
+-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-str=
+oke-width: 0px;text-decoration-style: initial;text-decoration-color: initia=
+l;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica"=
+,sans-serif;color:#333333'>for(k=3D0;k&lt;f;k++)<o:p></o:p></span></p><p st=
+yle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-=
+left:0in;background:white;vertical-align:baseline;font-variant-ligatures: n=
+ormal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-=
+east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wi=
+dows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-=
+decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt=
+;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><=
+p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;mar=
+gin-left:0in;background:white;vertical-align:baseline;font-variant-ligature=
+s: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-vari=
+ant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: =
+2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;t=
+ext-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10=
+.5pt;font-family:"Helvetica",sans-serif;color:#333333'>if(F[k]=3D=3Ds[i])<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in=
+;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:basel=
+ine;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-n=
+umeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line=
+-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-de=
+coration-style: initial;text-decoration-color: initial;word-spacing:0px'><s=
+pan style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333=
+333'>flag=3D1;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;marg=
+in-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical=
+-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fo=
+nt-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: =
+inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width:=
+ 0px;text-decoration-style: initial;text-decoration-color: initial;word-spa=
+cing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-seri=
+f;color:#333333'>break;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt=
+:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white=
+;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: =
+normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-=
+stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stro=
+ke-width: 0px;text-decoration-style: initial;text-decoration-color: initial=
+;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",=
+sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-margin-top=
+-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:w=
+hite;vertical-align:baseline;font-variant-ligatures: normal;font-variant-ca=
+ps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;f=
+ont-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-=
+stroke-width: 0px;text-decoration-style: initial;text-decoration-color: ini=
+tial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helveti=
+ca",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>printf(&quot;\n\t%c\t&quot;,s[i]);<o:p></=
+o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-b=
+ottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-=
+variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: i=
+nherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:i=
+nherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-=
+style: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>if(j=
+!=3Df &amp;&amp; flag!=3D1)<o:p></o:p></span></p><p style=3D'mso-margin-top=
+-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:w=
+hite;vertical-align:baseline;font-variant-ligatures: normal;font-variant-ca=
+ps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;f=
+ont-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-=
+stroke-width: 0px;text-decoration-style: initial;text-decoration-color: ini=
+tial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helveti=
+ca",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>F[top]=3Ds[i];<o:p></o:p></span></p><p st=
+yle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-=
+left:0in;background:white;vertical-align:baseline;font-variant-ligatures: n=
+ormal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-=
+east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wi=
+dows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-=
+decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt=
+;font-family:"Helvetica",sans-serif;color:#333333'>j++;<o:p></o:p></span></=
+p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;=
+margin-left:0in;background:white;vertical-align:baseline;font-variant-ligat=
+ures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-v=
+ariant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphan=
+s: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initia=
+l;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size=
+:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>if(j!=3Df)<o:p></=
+o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-b=
+ottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-=
+variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: i=
+nherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:i=
+nherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-=
+style: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>top+=
++;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in=
+;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:basel=
+ine;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-n=
+umeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line=
+-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-de=
+coration-style: initial;text-decoration-color: initial;word-spacing:0px'><s=
+pan style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333=
+333'>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right=
+:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:b=
+aseline;font-variant-ligatures: normal;font-variant-caps: normal;font-varia=
+nt-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;=
+line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;tex=
+t-decoration-style: initial;text-decoration-color: initial;word-spacing:0px=
+'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:=
+#333333'>else<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margi=
+n-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-=
+align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fon=
+t-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: i=
+nherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: =
+0px;text-decoration-style: initial;text-decoration-color: initial;word-spac=
+ing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif=
+;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;m=
+argin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;verti=
+cal-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal=
+;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretc=
+h: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-wid=
+th: 0px;text-decoration-style: initial;text-decoration-color: initial;word-=
+spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-s=
+erif;color:#333333'>if(flag!=3D1)<o:p></o:p></span></p><p style=3D'mso-marg=
+in-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgr=
+ound:white;vertical-align:baseline;font-variant-ligatures: normal;font-vari=
+ant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inh=
+erit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit=
+-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-colo=
+r: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"H=
+elvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-=
+margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;ba=
+ckground:white;vertical-align:baseline;font-variant-ligatures: normal;font-=
+variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian:=
+ inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-we=
+bkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-=
+color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-famil=
+y:"Helvetica",sans-serif;color:#333333'>for(k=3D0;k&lt;top;k++)<o:p></o:p><=
+/span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom=
+:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varia=
+nt-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inheri=
+t;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inheri=
+t;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style=
+: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'f=
+ont-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o=
+:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bo=
+ttom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-v=
+ariant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: in=
+herit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:in=
+herit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-s=
+tyle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>F[k]=
+=3DF[k+1];<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-r=
+ight:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-ali=
+gn:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-v=
+ariant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inhe=
+rit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px=
+;text-decoration-style: initial;text-decoration-color: initial;word-spacing=
+:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;co=
+lor:#333333'>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;marg=
+in-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical=
+-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fo=
+nt-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: =
+inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width:=
+ 0px;text-decoration-style: initial;text-decoration-color: initial;word-spa=
+cing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-seri=
+f;color:#333333'>F[top]=3Ds[i];<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-ma=
+rgin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;back=
+ground:white;vertical-align:baseline;font-variant-ligatures: normal;font-va=
+riant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: i=
+nherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>if(flag=3D=3D1)<o:p></o:p></span></p>=
+<p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;ma=
+rgin-left:0in;background:white;vertical-align:baseline;font-variant-ligatur=
+es: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-var=
+iant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans:=
+ 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;=
+text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:1=
+0.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></span>=
+</p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0p=
+t;margin-left:0in;background:white;vertical-align:baseline;font-variant-lig=
+atures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font=
+-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orph=
+ans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: init=
+ial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-si=
+ze:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>for(m=3Dk;m&lt;=
+top;m++)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-rig=
+ht:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align=
+:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-var=
+iant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inheri=
+t;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;t=
+ext-decoration-style: initial;text-decoration-color: initial;word-spacing:0=
+px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;colo=
+r:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin=
+-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-a=
+lign:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font=
+-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: in=
+herit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0=
+px;text-decoration-style: initial;text-decoration-color: initial;word-spaci=
+ng:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;=
+color:#333333'>F[m]=3DF[m+1];<o:p></o:p></span></p><p style=3D'mso-margin-t=
+op-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background=
+:white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-=
+caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit=
+;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-tex=
+t-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: i=
+nitial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helve=
+tica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-marg=
+in-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgr=
+ound:white;vertical-align:baseline;font-variant-ligatures: normal;font-vari=
+ant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inh=
+erit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit=
+-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-colo=
+r: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"H=
+elvetica",sans-serif;color:#333333'>F[top]=3Ds[i];<o:p></o:p></span></p><p =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margi=
+n-left:0in;background:white;vertical-align:baseline;font-variant-ligatures:=
+ normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varian=
+t-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;=
+widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;tex=
+t-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5=
+pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p=
+><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;m=
+argin-left:0in;background:white;vertical-align:baseline;font-variant-ligatu=
+res: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-va=
+riant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans=
+: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial=
+;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:=
+10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span=
+></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0=
+pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-li=
+gatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;fon=
+t-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orp=
+hans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: ini=
+tial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-s=
+ize:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>for(k=3D0;k&lt=
+;f;k++)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-righ=
+t:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:=
+baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-vari=
+ant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit=
+;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color=
+:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-=
+right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-al=
+ign:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-=
+variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inh=
+erit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0p=
+x;text-decoration-style: initial;text-decoration-color: initial;word-spacin=
+g:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;c=
+olor:#333333'>printf(&quot; %c&quot;,F[k]);<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p s=
+tyle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin=
+-left:0in;background:white;vertical-align:baseline;font-variant-ligatures: =
+normal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant=
+-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;w=
+idows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text=
+-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5p=
+t;font-family:"Helvetica",sans-serif;color:#333333'>if(flag=3D=3D0)<o:p></o=
+:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bo=
+ttom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-v=
+ariant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: in=
+herit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:in=
+herit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-s=
+tyle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+printf(&quot;\tPage-fault%d&quot;,cnt);<o:p></o:p></span></p><p style=3D'ms=
+o-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;=
+background:white;vertical-align:baseline;font-variant-ligatures: normal;fon=
+t-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asia=
+n: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-=
+webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoratio=
+n-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fam=
+ily:"Helvetica",sans-serif;color:#333333'>cnt++;<o:p></o:p></span></p><p st=
+yle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-=
+left:0in;background:white;vertical-align:baseline;font-variant-ligatures: n=
+ormal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-=
+east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wi=
+dows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-=
+decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt=
+;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><=
+p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;mar=
+gin-left:0in;background:white;vertical-align:baseline;font-variant-ligature=
+s: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-vari=
+ant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: =
+2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;t=
+ext-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10=
+.5pt;font-family:"Helvetica",sans-serif;color:#333333'>else<o:p></o:p></spa=
+n></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.=
+0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-l=
+igatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;fo=
+nt-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;or=
+phans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: in=
+itial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-=
+size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>printf(&quot;=
+\tNo page fault&quot;);<o:p></o:p></span></p><p style=3D'mso-margin-top-alt=
+:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white=
+;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: =
+normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-=
+stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stro=
+ke-width: 0px;text-decoration-style: initial;text-decoration-color: initial=
+;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",=
+sans-serif;color:#333333'>flag=3D0;<o:p></o:p></span></p><p style=3D'mso-ma=
+rgin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;back=
+ground:white;vertical-align:baseline;font-variant-ligatures: normal;font-va=
+riant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: i=
+nherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'ms=
+o-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;=
+background:white;vertical-align:baseline;font-variant-ligatures: normal;fon=
+t-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asia=
+n: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-=
+webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoratio=
+n-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fam=
+ily:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>//optimal<o:p></o:p></span>=
+</p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0p=
+t;margin-left:0in;background:white;vertical-align:baseline;font-variant-lig=
+atures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font=
+-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orph=
+ans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: init=
+ial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-si=
+ze:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>void opt(char s=
+[],char F[],int l,int f)<o:p></o:p></span></p><p style=3D'mso-margin-top-al=
+t:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whit=
+e;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps:=
+ normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font=
+-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-str=
+oke-width: 0px;text-decoration-style: initial;text-decoration-color: initia=
+l;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica"=
+,sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-to=
+p-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:=
+white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-c=
+aps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;=
+font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text=
+-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: in=
+itial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvet=
+ica",sans-serif;color:#333333'>int i,j=3D0,k,m,flag=3D0,cnt=3D0,temp[10];<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>printf(&quot;\n\tPAGE\t FRAMES\t FAULTS&quot;);<o:p></o:p></span></p><p st=
+yle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-=
+left:0in;background:white;vertical-align:baseline;font-variant-ligatures: n=
+ormal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-=
+east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wi=
+dows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-=
+decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt=
+;font-family:"Helvetica",sans-serif;color:#333333'>for(i=3D0;i&lt;10;i++)<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>temp[i]=3D0;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margi=
+n-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-=
+align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;fon=
+t-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: i=
+nherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: =
+0px;text-decoration-style: initial;text-decoration-color: initial;word-spac=
+ing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif=
+;color:#333333'>for(i=3D0;i&lt;f;i++)<o:p></o:p></span></p><p style=3D'mso-=
+margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;ba=
+ckground:white;vertical-align:baseline;font-variant-ligatures: normal;font-=
+variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian:=
+ inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-we=
+bkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-=
+color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-famil=
+y:"Helvetica",sans-serif;color:#333333'>F[i]=3D-1;<o:p></o:p></span></p><p =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margi=
+n-left:0in;background:white;vertical-align:baseline;font-variant-ligatures:=
+ normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varian=
+t-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;=
+widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;tex=
+t-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5=
+pt;font-family:"Helvetica",sans-serif;color:#333333'>for(i=3D0;i&lt;l;i++)<=
+o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;ma=
+rgin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline=
+;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-nume=
+ric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-he=
+ight:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decor=
+ation-style: initial;text-decoration-color: initial;word-spacing:0px'><span=
+ style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333=
+'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0i=
+n;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:base=
+line;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-=
+numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;lin=
+e-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-d=
+ecoration-style: initial;text-decoration-color: initial;word-spacing:0px'><=
+span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#33=
+3333'>for(k=3D0;k&lt;f;k++)<o:p></o:p></span></p><p style=3D'mso-margin-top=
+-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:w=
+hite;vertical-align:baseline;font-variant-ligatures: normal;font-variant-ca=
+ps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;f=
+ont-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-=
+stroke-width: 0px;text-decoration-style: initial;text-decoration-color: ini=
+tial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helveti=
+ca",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>if(F[k]=3D=3Ds[i])<o:p></o:p></span></p><=
+p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;mar=
+gin-left:0in;background:white;vertical-align:baseline;font-variant-ligature=
+s: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-vari=
+ant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: =
+2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;t=
+ext-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10=
+.5pt;font-family:"Helvetica",sans-serif;color:#333333'>flag=3D1;<o:p></o:p>=
+</span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-botto=
+m:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-vari=
+ant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inher=
+it;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inher=
+it;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-styl=
+e: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'=
+font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></=
+o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-b=
+ottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-=
+variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: i=
+nherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:i=
+nherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-=
+style: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>if(j=
+!=3Df &amp;&amp; flag=3D=3D0)<o:p></o:p></span></p><p style=3D'mso-margin-t=
+op-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background=
+:white;vertical-align:baseline;font-variant-ligatures: normal;font-variant-=
+caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit=
+;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-tex=
+t-stroke-width: 0px;text-decoration-style: initial;text-decoration-color: i=
+nitial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helve=
+tica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-marg=
+in-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgr=
+ound:white;vertical-align:baseline;font-variant-ligatures: normal;font-vari=
+ant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inh=
+erit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit=
+-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-colo=
+r: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"H=
+elvetica",sans-serif;color:#333333'>F[j]=3Ds[i];<o:p></o:p></span></p><p st=
+yle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-=
+left:0in;background:white;vertical-align:baseline;font-variant-ligatures: n=
+ormal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-=
+east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wi=
+dows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-=
+decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt=
+;font-family:"Helvetica",sans-serif;color:#333333'>j++;<o:p></o:p></span></=
+p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;=
+margin-left:0in;background:white;vertical-align:baseline;font-variant-ligat=
+ures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-v=
+ariant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphan=
+s: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initia=
+l;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size=
+:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></spa=
+n></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.=
+0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-l=
+igatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;fo=
+nt-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;or=
+phans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: in=
+itial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-=
+size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>else if(flag=
+=3D=3D0)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-rig=
+ht:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align=
+:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-var=
+iant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inheri=
+t;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;t=
+ext-decoration-style: initial;text-decoration-color: initial;word-spacing:0=
+px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;colo=
+r:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin=
+-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-a=
+lign:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font=
+-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: in=
+herit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0=
+px;text-decoration-style: initial;text-decoration-color: initial;word-spaci=
+ng:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;=
+color:#333333'>for(m=3D0;m&lt;f;m++)<o:p></o:p></span></p><p style=3D'mso-m=
+argin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;bac=
+kground:white;vertical-align:baseline;font-variant-ligatures: normal;font-v=
+ariant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: =
+inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-web=
+kit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-c=
+olor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family=
+:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'm=
+so-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in=
+;background:white;vertical-align:baseline;font-variant-ligatures: normal;fo=
+nt-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asi=
+an: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;=
+-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decorati=
+on-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-fa=
+mily:"Helvetica",sans-serif;color:#333333'>for(k=3Di+1;k&lt;l;k++)<o:p></o:=
+p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bot=
+tom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-va=
+riant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inh=
+erit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inh=
+erit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-st=
+yle: initial;text-decoration-color: initial;word-spacing:0px'><span style=
+=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:=
+p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;marg=
+in-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;f=
+ont-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeri=
+c: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-heig=
+ht:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decorat=
+ion-style: initial;text-decoration-color: initial;word-spacing:0px'><span s=
+tyle=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>=
+if(F[m]!=3Ds[k])<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;ma=
+rgin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertic=
+al-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;=
+font-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch=
+: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-widt=
+h: 0px;text-decoration-style: initial;text-decoration-color: initial;word-s=
+pacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-se=
+rif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0i=
+n;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;ve=
+rtical-align:baseline;font-variant-ligatures: normal;font-variant-caps: nor=
+mal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-str=
+etch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-=
+width: 0px;text-decoration-style: initial;text-decoration-color: initial;wo=
+rd-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",san=
+s-serif;color:#333333'>temp[m]=3Dtemp[m]+1;<o:p></o:p></span></p><p style=
+=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-lef=
+t:0in;background:white;vertical-align:baseline;font-variant-ligatures: norm=
+al;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-eas=
+t-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widow=
+s: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-dec=
+oration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p s=
+tyle=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin=
+-left:0in;background:white;vertical-align:baseline;font-variant-ligatures: =
+normal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant=
+-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;w=
+idows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text=
+-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5p=
+t;font-family:"Helvetica",sans-serif;color:#333333'>else<o:p></o:p></span><=
+/p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt=
+;margin-left:0in;background:white;vertical-align:baseline;font-variant-liga=
+tures: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-=
+variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orpha=
+ns: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initi=
+al;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-siz=
+e:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>break;<o:p></o:p=
+></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bott=
+om:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-var=
+iant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inhe=
+rit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inhe=
+rit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-sty=
+le: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D=
+'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p><=
+/o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-=
+bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font=
+-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: =
+inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:=
+inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration=
+-style: initial;text-decoration-color: initial;word-spacing:0px'><span styl=
+e=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>m=3D0;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-righ=
+t:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:=
+baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-vari=
+ant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit=
+;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;te=
+xt-decoration-style: initial;text-decoration-color: initial;word-spacing:0p=
+x'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color=
+:#333333'>for(k=3D0;k&lt;f;k++)<o:p></o:p></span></p><p style=3D'mso-margin=
+-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;backgrou=
+nd:white;vertical-align:baseline;font-variant-ligatures: normal;font-varian=
+t-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: inher=
+it;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-t=
+ext-stroke-width: 0px;text-decoration-style: initial;text-decoration-color:=
+ initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Hel=
+vetica",sans-serif;color:#333333'>{<o:p></o:p></span></p><p style=3D'mso-ma=
+rgin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;back=
+ground:white;vertical-align:baseline;font-variant-ligatures: normal;font-va=
+riant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian: i=
+nherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webk=
+it-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-co=
+lor: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:=
+"Helvetica",sans-serif;color:#333333'>if(temp[k]&gt;temp[m])<o:p></o:p></sp=
+an></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12=
+.0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant-=
+ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;f=
+ont-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;o=
+rphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: i=
+nitial;text-decoration-color: initial;word-spacing:0px'><span style=3D'font=
+-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o:p></o:p>=
+</span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-botto=
+m:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-vari=
+ant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inher=
+it;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inher=
+it;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-styl=
+e: initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'=
+font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>m=3Dk;<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in=
+;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:basel=
+ine;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-n=
+umeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line=
+-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-de=
+coration-style: initial;text-decoration-color: initial;word-spacing:0px'><s=
+pan style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333=
+333'>}<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right=
+:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:b=
+aseline;font-variant-ligatures: normal;font-variant-caps: normal;font-varia=
+nt-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;=
+line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;tex=
+t-decoration-style: initial;text-decoration-color: initial;word-spacing:0px=
+'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:=
+#333333'>F[m]=3Ds[i];<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0=
+in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;v=
+ertical-align:baseline;font-variant-ligatures: normal;font-variant-caps: no=
+rmal;font-variant-numeric: inherit;font-variant-east-asian: inherit;font-st=
+retch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke=
+-width: 0px;text-decoration-style: initial;text-decoration-color: initial;w=
+ord-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sa=
+ns-serif;color:#333333'>}<o:p></o:p></span></p><p style=3D'mso-margin-top-a=
+lt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whi=
+te;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps=
+: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fon=
+t-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-st=
+roke-width: 0px;text-decoration-style: initial;text-decoration-color: initi=
+al;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica=
+",sans-serif;color:#333333'>printf(&quot;\n\t%c\t&quot;,s[i]);<o:p></o:p></=
+span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:=
+12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varian=
+t-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit=
+;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit=
+;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style:=
+ initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fo=
+nt-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>for(k=3D0;=
+k&lt;f;k++)<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-=
+right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-al=
+ign:baseline;font-variant-ligatures: normal;font-variant-caps: normal;font-=
+variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch: inh=
+erit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0p=
+x;text-decoration-style: initial;text-decoration-color: initial;word-spacin=
+g:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;c=
+olor:#333333'>{<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;mar=
+gin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:white;vertica=
+l-align:baseline;font-variant-ligatures: normal;font-variant-caps: normal;f=
+ont-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch:=
+ inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width=
+: 0px;text-decoration-style: initial;text-decoration-color: initial;word-sp=
+acing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-ser=
+if;color:#333333'>printf(&quot; %c&quot;,F[k]);<o:p></o:p></span></p><p sty=
+le=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-l=
+eft:0in;background:white;vertical-align:baseline;font-variant-ligatures: no=
+rmal;font-variant-caps: normal;font-variant-numeric: inherit;font-variant-e=
+ast-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;wid=
+ows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-d=
+ecoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;=
+font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p><p=
+ style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;marg=
+in-left:0in;background:white;vertical-align:baseline;font-variant-ligatures=
+: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varia=
+nt-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2=
+;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;te=
+xt-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.=
+5pt;font-family:"Helvetica",sans-serif;color:#333333'>if(flag=3D=3D0)<o:p><=
+/o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-=
+bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;font=
+-variant-ligatures: normal;font-variant-caps: normal;font-variant-numeric: =
+inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-height:=
+inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration=
+-style: initial;text-decoration-color: initial;word-spacing:0px'><span styl=
+e=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>{<o=
+:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;=
+font-variant-ligatures: normal;font-variant-caps: normal;font-variant-numer=
+ic: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line-hei=
+ght:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decora=
+tion-style: initial;text-decoration-color: initial;word-spacing:0px'><span =
+style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'=
+>printf(&quot;\tPage-fault %d&quot;,cnt);<o:p></o:p></span></p><p style=3D'=
+mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0i=
+n;background:white;vertical-align:baseline;font-variant-ligatures: normal;f=
+ont-variant-caps: normal;font-variant-numeric: inherit;font-variant-east-as=
+ian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2=
+;-webkit-text-stroke-width: 0px;text-decoration-style: initial;text-decorat=
+ion-color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-f=
+amily:"Helvetica",sans-serif;color:#333333'>cnt++;<o:p></o:p></span></p><p =
+style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margi=
+n-left:0in;background:white;vertical-align:baseline;font-variant-ligatures:=
+ normal;font-variant-caps: normal;font-variant-numeric: inherit;font-varian=
+t-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans: 2;=
+widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial;tex=
+t-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:10.5=
+pt;font-family:"Helvetica",sans-serif;color:#333333'>}<o:p></o:p></span></p=
+><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;m=
+argin-left:0in;background:white;vertical-align:baseline;font-variant-ligatu=
+res: normal;font-variant-caps: normal;font-variant-numeric: inherit;font-va=
+riant-east-asian: inherit;font-stretch: inherit;line-height:inherit;orphans=
+: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: initial=
+;text-decoration-color: initial;word-spacing:0px'><span style=3D'font-size:=
+10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>else<o:p></o:p></s=
+pan></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:1=
+2.0pt;margin-left:0in;background:white;vertical-align:baseline;font-variant=
+-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit;=
+font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit;=
+orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style: =
+initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fon=
+t-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>printf(&quo=
+t;\tNo Page-fault&quot;);<o:p></o:p></span></p><p style=3D'mso-margin-top-a=
+lt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;background:whi=
+te;vertical-align:baseline;font-variant-ligatures: normal;font-variant-caps=
+: normal;font-variant-numeric: inherit;font-variant-east-asian: inherit;fon=
+t-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-st=
+roke-width: 0px;text-decoration-style: initial;text-decoration-color: initi=
+al;word-spacing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica=
+",sans-serif;color:#333333'>flag=3D0;<o:p></o:p></span></p><p style=3D'mso-=
+margin-top-alt:0in;margin-right:0in;margin-bottom:12.0pt;margin-left:0in;ba=
+ckground:white;vertical-align:baseline;font-variant-ligatures: normal;font-=
+variant-caps: normal;font-variant-numeric: inherit;font-variant-east-asian:=
+ inherit;font-stretch: inherit;line-height:inherit;orphans: 2;widows: 2;-we=
+bkit-text-stroke-width: 0px;text-decoration-style: initial;text-decoration-=
+color: initial;word-spacing:0px'><span style=3D'font-size:10.5pt;font-famil=
+y:"Helvetica",sans-serif;color:#333333'>for(k=3D0;k&lt;10;k++)<o:p></o:p></=
+span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bottom:=
+12.0pt;margin-left:0in;background:white;vertical-align:baseline;font-varian=
+t-ligatures: normal;font-variant-caps: normal;font-variant-numeric: inherit=
+;font-variant-east-asian: inherit;font-stretch: inherit;line-height:inherit=
+;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-decoration-style:=
+ initial;text-decoration-color: initial;word-spacing:0px'><span style=3D'fo=
+nt-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333333'>temp[k]=3D=
+0;<o:p></o:p></span></p><p style=3D'mso-margin-top-alt:0in;margin-right:0in=
+;margin-bottom:12.0pt;margin-left:0in;background:white;vertical-align:basel=
+ine;font-variant-ligatures: normal;font-variant-caps: normal;font-variant-n=
+umeric: inherit;font-variant-east-asian: inherit;font-stretch: inherit;line=
+-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width: 0px;text-de=
+coration-style: initial;text-decoration-color: initial;word-spacing:0px'><s=
+pan style=3D'font-size:10.5pt;font-family:"Helvetica",sans-serif;color:#333=
+333'>}<o:p></o:p></span></p><div style=3D'mso-element:para-border-div;borde=
+r:none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 1.0pt 0in;backg=
+round:white'><p style=3D'mso-margin-top-alt:0in;margin-right:0in;margin-bot=
+tom:12.0pt;margin-left:0in;background:white;vertical-align:baseline;border:=
+none;padding:0in;font-variant-ligatures: normal;font-variant-caps: normal;f=
+ont-variant-numeric: inherit;font-variant-east-asian: inherit;font-stretch:=
+ inherit;line-height:inherit;orphans: 2;widows: 2;-webkit-text-stroke-width=
+: 0px;text-decoration-style: initial;text-decoration-color: initial;word-sp=
+acing:0px'><span style=3D'font-size:10.5pt;font-family:"Helvetica",sans-ser=
+if;color:#333333'>}<o:p></o:p></span></p></div><p class=3DMsoNormal>This is=
+ just a project description but I think it gives us some hints:<br><a href=
+=3D"http://www.u.arizona.edu/~jmisurda/teaching/csc452/fall2018/csc452-fall=
+2018-project4.htm">http://www.u.arizona.edu/~jmisurda/teaching/csc452/fall2=
+018/csc452-fall2018-project4.htm</a><o:p></o:p></p><p class=3DMsoNormal><o:=
+p>&nbsp;</o:p></p><p class=3DMsoNormal>Another Demand Paging approach: <o:p=
+></o:p></p><p class=3DMsoNormal><a href=3D"https://github.com/ZacharyConlyn=
+/demand-paging-simulator">https://github.com/ZacharyConlyn/demand-paging-si=
+mulator</a><o:p></o:p></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p clas=
+s=3DMsoNormal><o:p>&nbsp;</o:p></p></div></body></html>=
+
