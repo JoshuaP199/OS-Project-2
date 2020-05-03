@@ -3,14 +3,13 @@
 import random 
 
 queue = []
-numbers = [2,6,9,2,4,2,1,7,3,0,5,2,1,2,9,5,7,3,8,5] #test1
+#numbers = [2,6,9,2,4,2,1,7,3,0,5,2,1,2,9,5,7,3,8,5] #test1
 #numbers = [0,6,3,0,2,6,3,5,2,4,1,3,0,6,1,4,2,3,5,7] #test2
-'''
-#numbers = []
+
+numbers = []
 
 for n in range(0,22):
     numbers.append(random.randint(0, 9))
-'''
 
 print("numbers = ", numbers)
 print("queue = ", queue)
@@ -32,7 +31,9 @@ for num in numbers:
             if previous == True:
                 i -= 1
             else:
-                if i == 0:
+                continue
+            ''' #I think this works better ^. I think I was overthinking it
+                if i == 0: 
                     continue
                 elif i < 2:
                     i +=1
@@ -40,6 +41,7 @@ for num in numbers:
                     continue
                 else:
                     i = 0
+            '''
             previous = True
 
 
