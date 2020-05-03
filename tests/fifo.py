@@ -1,3 +1,5 @@
+#By Joshua Perez
+
 import random 
 
 queue = []
