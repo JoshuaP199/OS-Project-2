@@ -11,6 +11,7 @@ numbers = []
 for n in range(0,22):
     numbers.append(random.randint(0, 9))
 
+
 print("numbers = ", numbers)
 print("queue = ", queue)
 print("\nStart with FIFO\n")
@@ -58,4 +59,4 @@ for num in numbers:
             print(queue)
             previous = False
             pf += 1
-print(pf, " Page Faults")
+print(pf, "Page Faults")
