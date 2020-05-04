@@ -4,8 +4,8 @@ import random
 from queue import Queue
 
 queue = []
-numbers = [2,6,9,2,4,2,1,7,3,0,5,2,1,2,9,5,7,3,8,5] #test1
-#numbers = [0,6,3,0,2,6,3,5,2,4,1,3,0,6,1,4,2,3,5,7] #test2
+#numbers = [2,6,9,2,4,2,1,7,3,0,5,2,1,2,9,5,7,3,8,5] #test1
+numbers = [0,6,3,0,2,6,3,5,2,4,1,3,0,6,1,4,2,3,5,7] #test2
 '''
 numbers = []
 
@@ -19,9 +19,10 @@ capacity = int(input("Please enter the page size in KB: (dont include KB)\n"))
 #print("queue = ", queue)
 print("\nStart with LRU\n")
 
-global i, pf
+global i, pf, help1
 i = 0
 pf = 0
+help1 = [] 
 
 #capacity = 4 #number of pages that memory can hold
 set = []
@@ -35,7 +36,8 @@ for num in numbers:
         set.append(num)
         print(set)
         pf += 1
-        indexes.put(i)
+        help1.append(i) ##########################
+        #indexes.put(i)
         i += 1
     elif len(set) < capacity and num in set: #how does this work with LRU since u skip to the next index in LRU?
         print("X")
@@ -44,19 +46,34 @@ for num in numbers:
         if num in set:
             print("X")
             rem = set.index(num)
-            #print(rem)
-            #needs to find where the dup is in set and wait till the others in set are changed before that one is
-            #indexes.get(int(rem))
+            help1.remove(rem)
+            help1.insert(capacity-1, rem)
+            i = help1[0]
+        else:
+            set[i] = num 
+            help1.remove(i)
+            help1.insert(capacity-1,i)
+            i = help1[0]
+            print(set)
+            pf += 1
+    '''
+    else:
+        if num in set:
+            print("X")
+            rem = set.index(num)
             indexes.queue.remove(rem)
             indexes.put(rem)
             #i = indexes.get() #needs to be head of queue without removing it
+        
         else:
-            #print(indexes.get())
             set[indexes.get()] = num
             print(set)
             indexes.put(i)
-            #print(indexes)
             i += 1
+            #i = indexes.get() #needs to be head of queue without removing it
+            pf += 1
+    '''
+
 
 '''
 for num in numbers:
