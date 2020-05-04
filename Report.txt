@@ -1,0 +1,18 @@
+
+Sections: 
+
+I. Completeness of the project
+
+II. Lru Algorithm - Completed
+
+III. Fifo Algorithm - Completed
+
+IV: Virtual Memory Simulator
+
+V: Accessing the real Memory
+
+VI: Page Table - Concept Done, needs to be implemented for swappign
+
+VII: Results
+  a. Page Table Hits
+  b. Page Faults
