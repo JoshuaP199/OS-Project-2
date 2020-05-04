@@ -148,10 +148,18 @@ for item in pairs:
     pageTable.append([heads[i], tails[i], 0])
     lruholder.append(int(tails[i], 16))
     i+=1
+    
+############################
+# Implement Virtual Memory #
+############################
+
 ########################
-# Implement Page Table #
+# Implement Physical Memory #
 ########################
 
-# Create list that will be fed to lru
+########################
+#       Run Code       #
+########################
+
 LRU(lruholder)
 FIFO(lruholder)
