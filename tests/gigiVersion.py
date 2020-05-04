@@ -1,3 +1,7 @@
+#############################
+# Get Data From Trace Files #
+#############################
+
 import os
 
 #create a list to hold all the hexadecimal and (s,l) pairs
