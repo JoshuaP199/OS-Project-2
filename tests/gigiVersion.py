@@ -3,6 +3,7 @@
 #############################
 
 import os
+from queue import Queue
 
 #create a list to hold all the hexadecimal and (s,l) pairs
 
@@ -10,8 +11,8 @@ pairs = []
 
 
 #code needs to be in the same location as the trace folders
-location  = input("Please enter the folder location where the Trace Files are being Kept")
-file = input("Please input what file you would like to run without the .trace ending")
+location  = input("Please enter the folder location where the Trace Files are being kept.\n")
+file = input("Please input what file you would like to run without the .trace ending.\n")
 #for filename in os.listdir(location):
 
 path = location + "\\" + file + ".trace"
@@ -34,98 +35,82 @@ for item in pairs:
 #      LRU Code     #
 #####################
 
-def LRU(numbers): 
-    #"numbers" needs to be a list so idk if thats possible
-    #Or make this where its called after every number in said list
-    queue = []
+def LRU(numbers, capacity): #numbers is a list & capacity is the page size
+    print("\nLRU\n")
+
     i = 0
     pf = 0
-    capacity = 4
-    
+    help1 = [] 
 
+    set = []
+
+    #if sys.getsizeof(queue) <= 4000: #4000 is the max amount of bytes
     for num in numbers:
-        # if sys.getsizeof(queue) <= 4000: #4000 is the max amount of bytes
-        if len(queue) != capacity:
-            queue.append(num)
-            print(queue)
+        if i == capacity:
+            i = 0
+        if len(set) < capacity and num not in set:
+            set.append(num)
+            #print(set)
             pf += 1
+            help1.append(i)
+            i += 1
+        elif len(set) < capacity and num in set: #how does this work with LRU since u skip to the next index in LRU?
+            #print("X")
+            continue
         else:
-            if num in queue:
-                print("X")
-                if num == queue[i]:
-                    if i < (capacity-1):
-                        i += 1
-                    else:
-                        i = 0
-                else:
-                    continue
-
-            elif i < (capacity-1):
-                queue[i] = num
-                i += 1    
-                print(queue)
-                pf += 1
-
+            if num in set:
+                #print("X")
+                rem = set.index(num)
+                help1.remove(rem)
+                help1.insert(capacity-1, rem)
+                i = help1[0]
             else:
-                queue[i] = num
-                i = 0
-                print(queue)
+                set[i] = num 
+                help1.remove(i)
+                help1.insert(capacity-1,i)
+                i = help1[0]
+                #print(set)
                 pf += 1
-    print(pf, "Page Faults")
+    return pf
     
 
 ####################
 #   Fifo Code      #
 ####################
 
-def FIFO(numbers):
-    #"numbers" needs to be a list so idk if thats possible
-    #Or make this where its called after every number in said list
-    queue = []
+def FIFO(numbers, capacity): #numbers is a list & capacity is the page size
+    print("\nFIFO\n")
+
     i = 0
-    previous = False
     pf = 0
-    capacity = 4
 
+    set = []
+    indexes = Queue(maxsize = capacity)
+
+    #if sys.getsizeof(queue) <= 4000: #4000 is the max amount of bytes
     for num in numbers:
-        if len(queue) != capacity:
-            queue.append(num)
-            print(queue)
+        if i == capacity:
+            i = 0
+        if len(set) < capacity and num not in set:
+            set.append(num)
+            #print(set)
             pf += 1
-        else: 
-            if num in queue:
-                print("X")
-                if previous == True:
-                    i -= 1
-                else:
-                    continue
-                ''' #I think this works better ^. I think I was overthinking it
-                    if i == 0: 
-                        continue
-                    elif i < 2:
-                        i +=1
-                    elif i == 2:
-                        continue
-                    else:
-                        i = 0
-                '''
-                previous = True
-
-
-            elif i < (capacity-1):
-                queue[i] = num
-                i += 1    
-                print(queue)
-                previous = False
-                pf += 1
-
+            indexes.put(i)
+            i += 1
+        elif len(set) < capacity and num in set:
+            #print("X")
+            continue
+        else:
+            if num in set:
+                #print("X")
+                continue
             else:
-                queue[i] = num
-                i = 0
-                print(queue)
-                previous = False
+                set[indexes.get()] = num
+                #print(set)
+                indexes.put(i)
+                i += 1
                 pf += 1
-    print(pf, "Page Faults")
+    return pf
 
 #####################
 #    Page Table    #
@@ -161,5 +146,5 @@ for item in pairs:
 #       Run Code       #
 ########################
 
-LRU(lruholder)
-FIFO(lruholder)
+print(LRU(lruholder, 4), "page faults for", file + ".trace")
+print(FIFO(lruholder, 4), "page faults for", file + ".trace")
