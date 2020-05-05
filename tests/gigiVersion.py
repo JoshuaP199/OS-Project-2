@@ -4,6 +4,7 @@
 
 import os
 import sys
+from queue import Queue
 
 #create a list to hold all the hexadecimal and (s,l) pairs
 
@@ -11,12 +12,13 @@ pairs = []
 
 
 #code needs to be in the same location as the trace folders
-location  = input("Please enter the folder location where the Trace Files are being Kept")
-file = input("Please input what file you would like to run without the .trace ending")
+#location  = input("Please enter the folder location where the Trace Files are being Kept\n")
+#file = input("Please input what file you would like to run without the .trace ending\n")
 #for filename in os.listdir(location):
+f = open(input("Enter the path of your trace file not including .trace: "))
 
-path = location + "\\" + file + ".trace"
-f = open(path, "r")
+#path = location + "\\" + file + ".trace"
+#f = open(path, "r")
 for line in f:
     hexa = line[4:12]
     pairs.append(hexa)
@@ -38,7 +40,7 @@ PageHitsIndexes = []
 #####################
 
 def LRU(numbers): #numbers is a list & capacity is the page size
-    print("\nLRU\n")
+    print("\nUsing LRU\n")
 
     counter = 0
     i = 0
@@ -74,7 +76,8 @@ def LRU(numbers): #numbers is a list & capacity is the page size
                 #print(set)
                 pf += 1
         counter +=1
-    print(pf)
+    #print(pf)
+    return pf, frames[-1] 
     
 
 ####################
@@ -87,28 +90,28 @@ def FIFO(numbers, capacity): #numbers is a list & capacity is the page size
     i = 0
     pf = 0
 
-    set = []
+    frames = []
     indexes = Queue(maxsize = capacity)
 
     #if sys.getsizeof(queue) <= 4000: #4000 is the max amount of bytes
     for num in numbers:
         if i == capacity:
             i = 0
-        if len(set) < capacity and num not in set:
-            set.append(num)
+        if len(frames) < capacity and num not in frames:
+            frames.append(num)
             #print(set)
             pf += 1
             indexes.put(i)
             i += 1
-        elif len(set) < capacity and num in set:
+        elif len(set) < capacity and num in frames:
             #print("X")
             continue
         else:
-            if num in set:
+            if num in frames:
                 #print("X")
                 continue
             else:
-                set[indexes.get()] = num
+                frames[indexes.get()] = num
                 #print(set)
                 indexes.put(i)
                 i += 1
@@ -162,29 +165,56 @@ pMem = [None] * (2**12)
 
 #This checks Physical Memories size and if it reaches capacity then it applies LRU on it's self
 if pMem[-1] != None: 
-    pMem = LRU(PMem)
+    pMem = LRU(pMem)
 
 
 
 for item in pagTab: 
-    if item[0] in PageHitsIndexes:
-        item[3] == 1    
+    if item in PageHitsIndexes:
+        PageHitsIndexes[3] == 1   
+
+#Reads each slot in "Main Memory"
+d = 0               #total main memory entry number
+for c in pMem:
+    d += 1
+
+
+#Append each entry to a list of numbers &  do LRU on said list of numbers
+LoN = []    #list of numbers containing tails 
+pafa = []   #list of page faults obtained after each ^ list is full
+p=0         #used to display the most recent pafr in the list 
+j = 0
+tpafa = 0
+
+for l in pairs:                                         #goes through all items in pairs
+    if len(LoN) > d:                                    #checks if length of LoN is less than the total number of available physical memory (dont rememeber y i set it up like this)
+        print("\nFull")                                 #Displays this when LoN has reached its max
+        pafa.append(LRU(LoN))                           #Appends the page faults from LoN after going through LRU 
+        print("Page faults & last frame:", pafa[p])     #Displays page faults and last frame used in LRU
+        tpafa += pafa[p][0]                              #Stores the page faults to gather a total
+        p += 1                                          #adds one to pafr's most recent index finder
+        LoN = []                                        #Empties LoN list to go through the next wave of numbers
+    else:
+        LoN.append(pairs[j][5:])                        #Appends tail to LoN list
+        j+=1                                            #adds one to pairs index finder
+print("\nTotal Page faults:", tpafa)                    #Displays Total page faults
+
         
 #1 # Pagtab needs to be set to size 2^20
--g # Read first item from file
--g # append head to pagTab and set v as 0
--g # send tail to position i (i+=1 for each rendition) of main memory until main memory is full
--g #main memory contains a list of indexes and their corresponding tails
+#-g # Read first item from file
+#-g # append head to pagTab and set v as 0
+#-g # send tail to position i (i+=1 for each rendition) of main memory until main memory is full
+#-g #main memory contains a list of indexes and their corresponding tails
 #1 # main memory needs to be set to size (2^12)
 #1 #once the main memory is full (there have been 2^12 entries) apply lru
     #LRU modifications that need to be done
-        # 1. Read each entry in main memory ex. Memory[1] 
-        # 2. Append each entry to a list of numbers
-        # 3. Do LRU on this list of numbers
-        # 4. Return the last frame of the LRU 
-        # 5. update a general count of page faults that can be added to each rendition of the lru
+        #1 # 1. Read each entry in main memory ex. Memory[1] 
+        #1 # 2. Append each entry to a list of numbers
+        #1 # 3. Do LRU on this list of numbers
+        #1 # 4. Return the last frame of the LRU 
+        #1 # 5. update a general count of page faults that can be added to each rendition of the lru
         # 6. Change main memory to fit the LRU last frame
--g #Page hit is everytime it is already in main memory
+#-g #Page hit is everytime it is already in main memory
 #Repeat
 
 
