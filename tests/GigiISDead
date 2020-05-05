@@ -158,59 +158,13 @@ pMemCapacity = 2**12
 
 #Get unique Heads/Indexes for Page Tables
 
-
-d = 0
-s = 0
-pageHit = 0
-'''
-while len(pMem) < pMemCapacity:
-    for item in Vmemory:
-        #base case
-        if item[1] in Vmemory == Vmemory[1]:
-            pagTab.append([item[1], 0]) #Initialize item in PagTable with 0 for valid bit and 
-            pMem.append([s, item[2]]) #loads into memory with index s
-            pagTab[0].insert(1, s) #inserts the location of it in Physical memory into the Page table
-            s+=1
-            pagTab[2] = 1 #Change Valid Bit to One
-         
-        #if the reference bit is already in the page table 
-        elif item[1] in pagTab[0]:
-            index = pagTab.index(item)
-            pageHit +=1 #Increase Page Hit because it means that there was already a page reference for that 20bit
-            pMem.append([s, item[2]]) #loads into memory with index s
-            pagTab[index][1] = s
-            s+=1
-                    
-        #if the reference bit is not in the page table
-        elif item[1] not in pagTab[0]:
-            pagTab.append([item[1], 0]) #Initialize item in PagTable with 0 for valid bit and 
-            pMem.append([s, item[2]]) #loads into memory with index s
-            pagTab[d].insert(1, s) #inserts the location of it in Physical memory into the Page table
-            s+=1
-            pagTab[2] = 1 #Change Valid Bit to One
-        else: 
-            print("ERROR!!!!!! Incorrect VM --> PM")
-        d+=1
-'''       
-
-########################
-#       Run Code       #
-########################
-
-#LRU(lruholder)
-#FIFO(lruholder)
-
-#####################################################################################################
-pagTab = []
-pMem = []
-d = 0
-s = 0
 u = 0
+d = 0
+s = 0
 pageHit = 0
 
-
-
-for item in Vmemory: #[0, 'sjadads', 'g67']
+#this section doesnt work
+for item in Vmemory: 
         #if the reference bit is not in the page table
         print(s)
         if len(pagTab) == 0:
@@ -242,4 +196,5 @@ for item in Vmemory: #[0, 'sjadads', 'g67']
                     s+=1
                 else: 
                     LRU(pMem)
-            u+=1
+            u+=1   
+
