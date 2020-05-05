@@ -1,0 +1,245 @@
+#############################
+# Get Data From Trace Files #
+#############################
+
+import os
+import sys
+from queue import Queue
+
+#create a list to hold all the hexadecimal and (s,l) pairs
+
+pairs = []
+
+
+#code needs to be in the same location as the trace folders
+location  = input("Please enter the folder location where the Trace Files are being Kept\n")
+file = input("Please input what file you would like to run without the .trace ending\n")
+#for filename in os.listdir(location):
+#f = open(input("Enter the path of your trace file not including .trace: "))
+
+path = location + "\\" + file + ".trace"
+f = open(path, "r")
+for line in f:
+    hexa = line[4:12]
+    pairs.append(hexa)
+
+#This is splitting it by the head and the tail
+tails = []
+heads = []
+i=0
+for item in pairs: 
+    heads.append(pairs[i][0:5])
+    tails.append(pairs[i][5:])
+    i+=1
+
+global PageHitsIndexes
+PageHitsIndexes = []
+
+#####################
+#      LRU Code     #
+#####################
+
+def LRU(numbers): #numbers is a list & capacity is the page size
+    print("\nUsing LRU\n")
+
+    counter = 0
+    i = 0
+    pf = 0
+    help1 = [] 
+
+    frames = []
+
+    
+    #if sys.getsizeof(queue) <= 4000: #4000 is the max amount of bytes
+    for num in numbers:
+        if sys.getsizeof(frames) > 4000: 
+            i = 0
+        if sys.getsizeof(frames) <= 4000 and num not in frames:
+            frames.append(num)
+            pf += 1
+            help1.append(i)
+            i += 1
+        elif sys.getsizeof(frames) <= 4000 and num in frames: #how does this work with LRU since u skip to the next index in LRU?
+            continue
+        else:
+            if num in frames:
+                PageHitsIndexes.append(counter)
+                rem = frames.index(num)
+                help1.remove(rem)
+                help1.insert(help1[-1], rem) 
+                i = help1[0]
+            else:
+                frames[i] = num 
+                help1.remove(i)
+                help1.insert(help1[-1],i)
+                i = help1[0]
+                #print(set)
+                pf += 1
+        counter +=1
+    #print(pf)
+    return pf, frames[-1] 
+    
+
+####################
+#   Fifo Code      #
+####################
+
+def FIFO(numbers, capacity): #numbers is a list & capacity is the page size
+    print("\nFIFO\n")
+
+    i = 0
+    pf = 0
+
+    frames = []
+    indexes = Queue(maxsize = capacity)
+
+    #if sys.getsizeof(queue) <= 4000: #4000 is the max amount of bytes
+    for num in numbers:
+        if i == capacity:
+            i = 0
+        if len(frames) < capacity and num not in frames:
+            frames.append(num)
+            #print(set)
+            pf += 1
+            indexes.put(i)
+            i += 1
+        elif len(set) < capacity and num in frames:
+            #print("X")
+            continue
+        else:
+            if num in frames:
+                #print("X")
+                continue
+            else:
+                frames[indexes.get()] = num
+                #print(set)
+                indexes.put(i)
+                i += 1
+                pf += 1
+    return pf
+    
+############################
+#   Simulated   Memory     #
+############################
+#  heads # tails #     v   #
+############################
+
+Vmemory = []
+i = 0
+for item in pairs: 
+    Vmemory.append([i, heads[i], tails[i]])
+    i+=1
+
+
+###################################
+#      Page Table                 #
+###################################
+#index # head # list of values # v#
+###################################
+
+# the number of entries allowed in the page table is 2^20
+pagTabCapacity = 2**20
+pagTab = []    
+
+#####################
+# Physical Memory   #
+#####################
+
+#Our Physical Memory is a List since we are not sure how to speak to the real memory of the computer
+#It has been initialized to hold 24 bit address aka (2^12)
+pMem = []
+pMemCapacity = 2**12
+
+
+#######################
+# From VM to PM in PT #
+#######################
+
+
+#Get unique Heads/Indexes for Page Tables
+
+
+d = 0
+s = 0
+pageHit = 0
+'''
+while len(pMem) < pMemCapacity:
+    for item in Vmemory:
+        #base case
+        if item[1] in Vmemory == Vmemory[1]:
+            pagTab.append([item[1], 0]) #Initialize item in PagTable with 0 for valid bit and 
+            pMem.append([s, item[2]]) #loads into memory with index s
+            pagTab[0].insert(1, s) #inserts the location of it in Physical memory into the Page table
+            s+=1
+            pagTab[2] = 1 #Change Valid Bit to One
+         
+        #if the reference bit is already in the page table 
+        elif item[1] in pagTab[0]:
+            index = pagTab.index(item)
+            pageHit +=1 #Increase Page Hit because it means that there was already a page reference for that 20bit
+            pMem.append([s, item[2]]) #loads into memory with index s
+            pagTab[index][1] = s
+            s+=1
+                    
+        #if the reference bit is not in the page table
+        elif item[1] not in pagTab[0]:
+            pagTab.append([item[1], 0]) #Initialize item in PagTable with 0 for valid bit and 
+            pMem.append([s, item[2]]) #loads into memory with index s
+            pagTab[d].insert(1, s) #inserts the location of it in Physical memory into the Page table
+            s+=1
+            pagTab[2] = 1 #Change Valid Bit to One
+        else: 
+            print("ERROR!!!!!! Incorrect VM --> PM")
+        d+=1
+'''       
+
+########################
+#       Run Code       #
+########################
+
+#LRU(lruholder)
+#FIFO(lruholder)
+
+#####################################################################################################
+pagTab = []
+pMem = []
+d = 0
+s = 0
+u = 0
+pageHit = 0
+
+
+
+for item in Vmemory: #[0, 'sjadads', 'g67']
+        #if the reference bit is not in the page table
+        print(s)
+        if len(pagTab) == 0:
+            pagTab.append([item[1], 0]) #Initialize item in PagTable with 0 for valid bit and 
+            if len(pMem) < pMemCapacity: 
+                pMem.append([s, int(item[2], 16)]) #loads into memory with index s
+                pagTab[0].insert(1, s) #inserts the location of it in Physical memory into the Page table
+                pagTab[s][2] = 1 #Change Valid Bit to One
+                s+=1
+            else: 
+                LRU(pMem)
+        else: 
+            for page in pagTab: 
+                if item[1] == page[0]:
+                    index = pagTab[u].index(item[1])
+                    pageHit +=1 #Increase Page Hit because it means that there was already a page reference for that 20bit
+                    if len(pMem) < pMemCapacity: 
+                        pMem.append([s, item[2]]) #loads into memory with index s
+                        pagTab[index].insert(1,s)
+                        s+=1
+                    else: 
+                        LRU(pMem)
+            if item[1] != page[0]:
+                pagTab.append([item[1], 0]) #Initialize item in PagTable with 0 for valid bit and 
+                if len(pMem) < pMemCapacity: 
+                    pMem.append([s, int(item[2], 16)]) #loads into memory with index s
+                    pagTab[s-1].insert(1, s) #indserts the location of it in Physical memory into the Page table
+                    pagTab[s-1][2] = 1 #Change Valid Bit to One
+                    s+=1
+                else: 
+                    LRU(pMem)
+            u+=1
